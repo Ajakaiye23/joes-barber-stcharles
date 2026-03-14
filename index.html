@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joe's Barber Shop | St. Charles, MO</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#1C1009;--tan:#C8A96E;--tan2:#E8D5B0;--cream:#FAF6EE;--cream2:#F2EAD8;--red:#8B2635;--gray:#6B5E4E;--border:rgba(200,169,110,0.25)}
+body{cursor:none;background:var(--cream);color:var(--ink);font-family:'Outfit',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;background:var(--ink);border-bottom:2px solid var(--tan)}
+.logo{font-family:'Libre Baskerville',serif;font-size:1.3rem;color:var(--tan2);letter-spacing:1px}
+.logo span{font-style:italic;color:var(--tan)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:rgba(232,213,176,0.6);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--tan)}
+.nav-cta{background:var(--red);color:var(--tan2);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;transition:all .2s;text-decoration:none}
+.nav-cta:hover{background:#a02d40}
+.hero{background:var(--ink);min-height:100vh;display:flex;align-items:center;padding:7rem 3rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'JOE\'S';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Libre Baskerville',serif;font-size:18rem;font-weight:700;color:rgba(200,169,110,0.04);pointer-events:none;white-space:nowrap;line-height:1}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,169,110,0.3);padding:6px 16px;margin-bottom:2rem}
+.hero-eyebrow span{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--tan)}
+.hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--tan)}
+h1{font-family:'Libre Baskerville',serif;font-size:clamp(3rem,6vw,6.5rem);line-height:1;color:var(--tan2);margin-bottom:1.5rem}
+h1 em{font-style:italic;color:var(--tan);display:block}
+.hero-sub{font-size:.95rem;color:rgba(232,213,176,0.55);line-height:1.9;font-weight:300;max-width:420px;margin-bottom:3rem}
+.btn-tan{background:var(--tan);color:var(--ink);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-tan:hover{background:var(--tan2)}
+.btn-outline-tan{background:transparent;color:var(--tan);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;padding:13px 32px;border:1px solid rgba(200,169,110,0.4);cursor:pointer;font-family:'Outfit',sans-serif;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-outline-tan:hover{border-color:var(--tan);background:rgba(200,169,110,0.08)}
+.hero-btns{display:flex;gap:1rem}
+.hero-card{background:rgba(200,169,110,0.07);border:1px solid var(--border);padding:3rem;position:relative}
+.hero-card::before{content:'EST.';position:absolute;top:1.5rem;right:2rem;font-family:'Libre Baskerville',serif;font-size:.6rem;letter-spacing:3px;color:rgba(200,169,110,0.3)}
+.hero-card-num{font-family:'Libre Baskerville',serif;font-size:5rem;font-weight:700;color:var(--tan);line-height:1;margin-bottom:.3rem}
+.hero-card-label{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(200,169,110,0.5);margin-bottom:2rem}
+.divider{height:1px;background:var(--border);margin:2rem 0}
+.hero-detail{font-size:.82rem;color:rgba(200,169,110,0.5);letter-spacing:1px}
+.hero-detail strong{color:var(--tan);display:block;font-size:.95rem;margin-bottom:.2rem}
+.strip{background:var(--red);padding:.75rem 0;overflow:hidden}
+.strip-track{display:flex;animation:scroll 16s linear infinite;white-space:nowrap}
+.strip-item{font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--tan2);padding:0 2.5rem;opacity:.9}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.section{padding:6rem 3rem;max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--tan);margin-bottom:1rem;font-weight:500;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:24px;height:1px;background:var(--tan)}
+.title{font-family:'Libre Baskerville',serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1;margin-bottom:1.5rem}
+.title em{font-style:italic;color:var(--red)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:4rem}
+.svc{padding:2.5rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;transition:background .2s}
+.svc:hover{background:var(--cream2)}
+.svc:nth-child(3n){border-right:none}
+.svc:nth-child(n+4){border-bottom:none}
+.svc-price{font-family:'Libre Baskerville',serif;font-size:2.2rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:.3rem}
+.svc-name{font-weight:600;font-size:1rem;margin-bottom:.6rem;letter-spacing:.5px}
+.svc-desc{font-size:.83rem;color:var(--gray);line-height:1.7;font-weight:300}
+.reviews-bg{background:var(--ink);padding:6rem 3rem}
+.reviews-inner{max-width:1200px;margin:0 auto}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.rev{background:rgba(200,169,110,0.05);border:1px solid var(--border);padding:2.5rem}
+.rev:hover{background:rgba(200,169,110,0.09)}
+.rev-stars{color:var(--tan);letter-spacing:2px;margin-bottom:1rem;font-size:.85rem}
+.rev-text{font-size:.87rem;color:rgba(232,213,176,0.6);line-height:1.9;font-style:italic;margin-bottom:1.5rem;font-weight:300}
+.rev-name{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--tan)}
+.info-section{background:var(--cream2);padding:6rem 3rem}
+.info-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+.hours-list{margin-top:2.5rem;display:flex;flex-direction:column;gap:0}
+.hr{display:flex;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--border)}
+.hr-day{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--gray)}
+.hr-time{font-family:'Libre Baskerville',serif;font-weight:700;font-size:.9rem;color:var(--ink)}
+.contact-cards{display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem}
+.ccard{background:var(--ink);padding:1.8rem 2rem;display:flex;gap:1.2rem;align-items:center}
+.ccard-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:rgba(200,169,110,0.5);margin-bottom:.3rem}
+.ccard-val{font-family:'Libre Baskerville',serif;font-weight:700;color:var(--tan2);font-size:1rem}
+.cta-final{background:var(--red);padding:7rem 3rem;text-align:center}
+.cta-final h2{font-family:'Libre Baskerville',serif;font-size:clamp(2.5rem,6vw,6rem);font-style:italic;color:var(--tan2);margin-bottom:1.5rem;line-height:1}
+.cta-final p{font-size:.95rem;color:rgba(232,213,176,0.7);max-width:400px;margin:0 auto 2.5rem;line-height:1.9;font-weight:300}
+.cta-phone{font-family:'Libre Baskerville',serif;font-size:2.5rem;font-weight:700;color:var(--tan2);display:block;margin-bottom:2rem;text-decoration:none}
+footer{background:var(--ink);border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fl{font-family:'Libre Baskerville',serif;font-style:italic;color:var(--tan);font-size:1.1rem}
+.fc{font-size:.72rem;letter-spacing:1px;color:rgba(200,169,110,0.4)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fi{opacity:0;animation:fadeUp .7s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-card{display:none}.nav-links{display:none}.section,.reviews-bg,.info-section,.cta-final{padding:4rem 1.5rem}.services-grid{grid-template-columns:1fr}.rev-grid{grid-template-columns:1fr}.info-inner{grid-template-columns:1fr}}
+.cur{color:var(--tan);position:fixed;width:8px;height:8px;background:currentColor;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}.cur-ring{position:fixed;width:32px;height:32px;border:1.5px solid currentColor;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;opacity:.5}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10000;align-items:center;justify-content:center}.modal-overlay.active{display:flex}.modal-box{background:#fff;max-width:400px;width:90%;padding:2.5rem;text-align:center;position:relative;animation:popIn .25s ease}.modal-box h3{font-size:1.2rem;color:#1a1a1a;margin-bottom:.5rem;font-weight:700}.modal-box p{font-size:.85rem;color:#666;line-height:1.6;margin-bottom:1.5rem}.modal-phone{font-size:1.8rem;font-weight:900;color:#8B2635;display:block;margin-bottom:1rem;text-decoration:none}.modal-addr{font-size:.82rem;color:#888;margin-bottom:1.5rem}.modal-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}.modal-btn-call{background:#8B2635;color:#fff;padding:12px 28px;border:none;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-btn-map{background:transparent;color:#8B2635;padding:11px 28px;border:1.5px solid #8B2635;cursor:pointer;font-weight:700;font-size:.82rem;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block}.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#999;line-height:1}@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><span>Joe's</span> Barber Shop</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#info">Hours</a></li>
+  </ul>
+  <a href="tel:3146887433" class="nav-cta" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Call Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow fi d1"><span>St. Charles, MO · 4.9 Stars</span></div>
+      <h1 class="fi d2">Your<em>Neighborhood Barber.</em></h1>
+      <p class="hero-sub fi d3">Old-fashioned barbershop quality with a master's touch. Joe remembers your style, keeps to his schedule, and makes every cut worth the visit.</p>
+      <div class="hero-btns fi d3">
+        <a href="tel:3146887433" class="btn-tan" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Call Joe Today</a>
+        <a href="#services" class="btn-outline-tan">View Services</a>
+      </div>
+    </div>
+    <div class="hero-card fi d2">
+      <div class="hero-card-num">4.9★</div>
+      <div class="hero-card-label">Google Rating · 77 Reviews</div>
+      <div class="divider"></div>
+      <div class="hero-detail"><strong>Walk-ins Welcome</strong>Or use the app to book appointments</div>
+      <div class="divider"></div>
+      <div class="hero-detail"><strong>$25 + tip</strong>Razor fade · great value</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <div class="strip-item">Haircuts</div><div class="strip-item">· Razor Fades ·</div><div class="strip-item">Beard Trims</div><div class="strip-item">· Walk-Ins Welcome ·</div><div class="strip-item">Old School Quality</div><div class="strip-item">· Appointments Available ·</div>
+    <div class="strip-item">Haircuts</div><div class="strip-item">· Razor Fades ·</div><div class="strip-item">Beard Trims</div><div class="strip-item">· Walk-Ins Welcome ·</div><div class="strip-item">Old School Quality</div><div class="strip-item">· Appointments Available ·</div>
+  </div>
+</div>
+
+<div class="section" id="services">
+  <div class="eyebrow">Services</div>
+  <h2 class="title">What Joe <em>Does Best</em></h2>
+  <div class="services-grid">
+    <div class="svc"><div class="svc-price">$25</div><div class="svc-name">Signature Haircut</div><div class="svc-desc">Joe's signature cut — he remembers your style from visit one. Clean, consistent, and exactly how you want it.</div></div>
+    <div class="svc"><div class="svc-price">$25</div><div class="svc-name">Razor Fade</div><div class="svc-desc">An amazing razor fade that takes you from busted to baller. Smooth, precise, and finished with a straight razor.</div></div>
+    <div class="svc"><div class="svc-price">$15</div><div class="svc-name">Beard Trim</div><div class="svc-desc">Shape up and define your beard. Joe takes his time to get the lines exactly right every single visit.</div></div>
+    <div class="svc"><div class="svc-price">$35</div><div class="svc-name">Cut + Beard Combo</div><div class="svc-desc">The full treatment — haircut and beard trim together. Walk out looking completely put together.</div></div>
+    <div class="svc"><div class="svc-price">$20</div><div class="svc-name">Kids' Cuts</div><div class="svc-desc">Patient, comfortable service for kids. Spacious waiting area if you bring the family along too.</div></div>
+    <div class="svc"><div class="svc-price">$10</div><div class="svc-name">Neck Clean-Up</div><div class="svc-desc">Quick razor clean-up between cuts to keep you looking sharp. In and out fast.</div></div>
+  </div>
+</div>
+
+<div class="reviews-bg" id="reviews">
+  <div class="reviews-inner">
+    <div class="eyebrow" style="color:var(--tan)">Reviews</div>
+    <h2 class="title" style="color:var(--tan2)">What Clients <em style="color:var(--tan)">Say</em></h2>
+    <div class="rev-grid">
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Thanks to Joe, I now have the best haircut in Saint Chuck. Took me from busted to baller. He's an absolute pro and I won't go anywhere else."</p><div class="rev-name">— Google Review</div></div>
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"Joe is a fantastic barber. Friendly, fun, will talk sports or movies, and does a great job every time. He remembers his regulars' styles and makes everyone comfortable."</p><div class="rev-name">— Google Review</div></div>
+      <div class="rev"><div class="rev-stars">★★★★★</div><p class="rev-text">"My son got his hair cut for the first time here. We couldn't be happier. He's an amazing barber — very gifted with the clippers. We will definitely be returning customers."</p><div class="rev-name">— Google Review</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="info-section" id="info">
+  <div class="info-inner">
+    <div>
+      <div class="eyebrow">Hours</div>
+      <h2 class="title">When We're <em>Open</em></h2>
+      <div class="hours-list">
+        <div class="hr"><span class="hr-day">Monday</span><span class="hr-time">9:00 AM – 5:00 PM</span></div>
+        <div class="hr"><span class="hr-day">Tuesday</span><span class="hr-time">9:00 AM – 6:00 PM</span></div>
+        <div class="hr"><span class="hr-day">Wednesday</span><span class="hr-time" style="color:var(--gray)">Closed</span></div>
+        <div class="hr"><span class="hr-day">Thursday</span><span class="hr-time">9:00 AM – 6:00 PM</span></div>
+        <div class="hr"><span class="hr-day">Friday</span><span class="hr-time">9:00 AM – 6:00 PM</span></div>
+        <div class="hr"><span class="hr-day">Saturday</span><span class="hr-time">9:00 AM – 2:00 PM</span></div>
+        <div class="hr"><span class="hr-day">Sunday</span><span class="hr-time" style="color:var(--gray)">Closed</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h2 class="title">Find <em>Joe</em></h2>
+      <div class="contact-cards">
+        <div class="ccard"><div><div class="ccard-label">Phone</div><div class="ccard-val">(314) 688-7433</div></div></div>
+        <div class="ccard"><div><div class="ccard-label">Address</div><div class="ccard-val">16 Hawks Nest Ct<br>St. Charles, MO 63303</div></div></div>
+        <div class="ccard"><div><div class="ccard-label">Booking</div><div class="ccard-val">Walk-ins + App Booking<br>$25 + tip · All ages welcome</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-final">
+  <h2>Ready for Your Best Cut?</h2>
+  <p>Call Joe today or just walk in. No frills, no waiting weeks — just a great haircut from a real barber.</p>
+  <a href="tel:3146887433" class="cta-phone">(314) 688-7433</a>
+  <a href="tel:3146887433" class="btn-tan" style="font-size:.85rem;padding:16px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Call Joe Now</a>
+  <a href="tel:3146887433" class="btn-tan" style="font-size:.85rem;padding:16px 48px" onclick="if(window.innerWidth>768){event.preventDefault();openBookModal()}">Call Joe Now</a>
+</div>
+
+<footer>
+  <div class="fl">Joe's Barber Shop</div>
+  <div class="fc">© 2026 Joe's Barber Shop · 16 Hawks Nest Ct, St. Charles, MO 63303</div>
+</footer>
+<script>
+const o=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.style.opacity='1';i.target.style.transform='translateY(0)'}})},{threshold:0.1});
+document.querySelectorAll('.svc,.rev,.hr,.ccard').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(14px)';el.style.transition='opacity .5s ease,transform .5s ease';o.observe(el)});
+</script>
+<div class="cur" id="cur" style="background:#C8A96E"></div><div class="cur-ring" id="curR" style="border-color:#C8A96E"></div>
+<script>
+const C=document.getElementById("cur"),R=document.getElementById("curR");
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+"px";C.style.top=my+"px"});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;R.style.left=rx+"px";R.style.top=ry+"px";requestAnimationFrame(loop)})();
+document.querySelectorAll("a,button,.svc,.svc-card,.rev,.service-card,.trust-card,.stat").forEach(el=>{el.addEventListener("mouseenter",()=>{R.style.transform="translate(-50%,-50%) scale(2.2)";R.style.opacity="0.9"});el.addEventListener("mouseleave",()=>{R.style.transform="translate(-50%,-50%) scale(1)";R.style.opacity="0.5"})});
+</script>
+<div class="modal-overlay" id="bookModal"><div class="modal-box"><button class="modal-close" onclick="closeModal()"></body>times;</button><h3>Joe's Barber Shop</h3><p>Ready to book? Give us a call or find us on the map.</p><a href="tel:3146887433" class="modal-phone">(314) 688-7433</a><div class="modal-addr">16 Hawks Nest Ct, St. Charles, MO 63303</div><div class="modal-btns"><a href="tel:3146887433" class="modal-btn-call">Call Now</a><a href="https://maps.google.com/?q=16+Hawks+Nest+Ct+St+Charles+MO" target="_blank" class="modal-btn-map">Get Directions</a></div></div></div><script>function openBookModal(){document.getElementById('bookModal').classList.add('active')}function closeModal(){document.getElementById('bookModal').classList.remove('active')}document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeModal()});</script>
+</body>
+</html>
