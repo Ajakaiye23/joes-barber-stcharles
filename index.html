@@ -576,8 +576,18 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   chairGroup.visible=false;
   scene.add(chairGroup);
 
-  // GROUND
-  var ground=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.MeshStandardMaterial({color:0x2A1810,roughness:0.95}));
+  // GROUND — glossy checkerboard barbershop tile (procedural texture)
+  var floorTex=(function(){
+    var c=document.createElement('canvas');c.width=c.height=512;var g=c.getContext('2d');
+    var n=8,s=512/n;
+    for(var yy=0;yy<n;yy++)for(var xx=0;xx<n;xx++){g.fillStyle=((xx+yy)%2===0)?'#241a10':'#0e0a06';g.fillRect(xx*s,yy*s,s,s);}
+    g.strokeStyle='rgba(0,0,0,0.5)';g.lineWidth=3;
+    for(var k=0;k<=n;k++){g.beginPath();g.moveTo(k*s,0);g.lineTo(k*s,512);g.stroke();g.beginPath();g.moveTo(0,k*s);g.lineTo(512,k*s);g.stroke();}
+    var tex=new THREE.CanvasTexture(c);tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.repeat.set(7,7);tex.anisotropy=4;
+    if('colorSpace' in tex){tex.colorSpace=THREE.SRGBColorSpace}else{tex.encoding=THREE.sRGBEncoding}
+    return tex;
+  })();
+  var ground=new THREE.Mesh(new THREE.PlaneGeometry(140,140),new THREE.MeshStandardMaterial({map:floorTex,color:0xffffff,roughness:0.34,metalness:0.35,envMapIntensity:0.85}));
   ground.rotation.x=-Math.PI/2;ground.position.y=-9;ground.receiveShadow=true;scene.add(ground);
 
   // DUST particles
