@@ -549,7 +549,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener
   var glassMat=new THREE.MeshPhysicalMaterial({color:0xffffff,metalness:0,roughness:0.06,transparent:true,opacity:0.16,clearcoat:1,clearcoatRoughness:0.04,envMapIntensity:2.2,side:THREE.DoubleSide});
   var glass=new THREE.Mesh(new THREE.CylinderGeometry(1.52,1.52,18.2,64,1,true),glassMat);scene.add(glass);
   // Chrome end caps + brass trim rings
-  var capMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.12,metalness:0.95,envMapIntensity:1.7});
+  var capMat=new THREE.MeshStandardMaterial({color:0xDDE3EA,roughness:0.1,metalness:1.0,envMapIntensity:2.1});
   var brassMat=new THREE.MeshStandardMaterial({color:0xC8A24A,roughness:0.3,metalness:0.9,envMapIntensity:1.5});
   var capTop=new THREE.Mesh(new THREE.CylinderGeometry(1.7,1.55,1.1,40),capMat);capTop.position.y=9.5;capTop.castShadow=true;scene.add(capTop);
   var capBot=new THREE.Mesh(new THREE.CylinderGeometry(1.55,1.7,1.1,40),capMat);capBot.position.y=-9.5;capBot.castShadow=true;scene.add(capBot);
